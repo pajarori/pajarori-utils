@@ -1,0 +1,68 @@
+# -------------------------
+# Python build artifacts
+# -------------------------
+__pycache__/
+*.py[cod]
+*.$py.class
+
+# Packaging
+build/
+dist/
+*.egg-info/
+*.egg/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+.venv*/
+pip-wheel-metadata/
+
+# Bytecode caches
+*.pyo
+*.pyd
+
+# -------------------------
+# Editor / IDE
+# -------------------------
+# VSCode local workspace settings (keep only our templates)
+.vscode/*
+!.vscode/settings.json
+!.vscode/snippets/
+!.vscode/snippets/*.code-snippets
+
+# JetBrains (just in case)
+.idea/
+
+# -------------------------
+# macOS junk
+# -------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+
+# -------------------------
+# Logs / temp
+# -------------------------
+*.log
+*.tmp
+*.bak
+*.old
+
+# -------------------------
+# Shell / system files
+# -------------------------
+*.sh~
+*~
+
+# -------------------------
+# Node / JS (optional, safe)
+# -------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# -------------------------

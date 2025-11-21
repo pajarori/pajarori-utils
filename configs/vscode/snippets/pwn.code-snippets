@@ -1,0 +1,27 @@
+{
+    "Pwntools Template (pajarori)": {
+        "prefix": "ppwn",
+        "body": [
+            "from pajarori.pwn import *",
+            "",
+            "elf = ELF(\"${1:./callme}\")",
+            "# lib = ELF(\"${2:./libcallme.so}\")",
+            "",
+            "io = start(elf, ",
+            "gdbscript='''",
+            "continue",
+            "''')",
+            "",
+            "rop = ROP(elf)",
+            "payload = flat({",
+            "    32: [",
+            "        rop.chain()",
+            "    ]",
+            "})",
+            "",
+            "io.sendlineafter(b\">\", payload)",
+            "io.interactive()"
+        ],
+        "description": "Auto pwntools template for pajarori"
+    }
+}

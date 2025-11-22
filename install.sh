@@ -77,7 +77,7 @@ install_pip_packages() {
 }
 
 install_python_lib() {
-  local py_dir="$REPO_DIR/python/pajarori"
+  local py_dir="$REPO_DIR/lib/python"
   [[ -d "$py_dir" ]] || { warn "python lib not found: $py_dir (skip)"; return; }
   log "installing python lib editable: $py_dir"
   pip install -e "$py_dir"

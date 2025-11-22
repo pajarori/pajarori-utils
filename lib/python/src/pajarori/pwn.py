@@ -1,6 +1,6 @@
-# pajarori/pwn.py
 from pwn import *
 from pwnlib.elf.elf import ELF as _ELF
+from pwnlib.tubes.tube import tube
 
 import os, shutil
 
@@ -33,6 +33,8 @@ def get_terminal(split: str = "horizontal", force: bool = False):
 
 context.terminal = get_terminal()
 
+tube.recvlineint = lambda x: int(x.recvline().strip(), 16)
+
 def ELF(path, *args, **kwargs):
     elf = _ELF(path, *args, **kwargs)
     context.binary = elf
@@ -45,5 +47,8 @@ def start(elf: str, **kwargs):
         return remote(sys.argv[1], sys.argv[2])
     else:
         return process(elf.path)
+    
+def delta(x, y):
+    return (0xffffffffffffffff - x) + y
 
 __all__ = [name for name in globals() if not name.startswith("_")]
